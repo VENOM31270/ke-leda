@@ -1,539 +1,539 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8" />
-  <title>Advanced Engineering Unit Converter</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- خط Roboto من Google Fonts -->
-  <link
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
-          rel="stylesheet"
-  />
-  <style>
-    /*
-      1) جعل الصفحة تأخذ كامل طول الشاشة مع إمكانية التمدد.
-      2) إضافة تدرج لوني متحرك للخلفية لزيادة الجاذبية.
-      3) ضبط اتجاه النص للعربية (rtl) إن رغبت بدعم كامل للعربية.
-    */
-    html, body {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: "Roboto", sans-serif;
-      min-height: 100vh; /* لكي تتمدد الصفحة حسب المحتوى */
-      background: linear-gradient(135deg, #34b8e8, #5d79ff);
-      background-size: 200% 200%;
-      animation: gradientAnimation 10s ease infinite;
-      color: #fff;
-      overflow-x: hidden;
-      position: relative;
-      direction: rtl;
-    }
+    <meta charset="UTF-8" />
+    <title>Advanced Engineering Unit Converter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- خط Roboto من Google Fonts -->
+    <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+            rel="stylesheet"
+    />
+    <style>
+        /*
+          1) جعل الصفحة تأخذ كامل طول الشاشة مع إمكانية التمدد.
+          2) إضافة تدرج لوني متحرك للخلفية لزيادة الجاذبية.
+          3) ضبط اتجاه النص للعربية (rtl) إن رغبت بدعم كامل للعربية.
+        */
+        html, body {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        body {
+          font-family: "Roboto", sans-serif;
+          min-height: 100vh; /* لكي تتمدد الصفحة حسب المحتوى */
+          background: linear-gradient(135deg, #34b8e8, #5d79ff);
+          background-size: 200% 200%;
+          animation: gradientAnimation 10s ease infinite;
+          color: #fff;
+          overflow-x: hidden;
+          position: relative;
+          direction: rtl;
+        }
 
-    /* تحريك التدرج اللوني للخلفية */
-    @keyframes gradientAnimation {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
+        /* تحريك التدرج اللوني للخلفية */
+        @keyframes gradientAnimation {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
 
-    /* الأشكال العائمة في الخلفية */
-    .floating-shapes {
-      position: absolute;
-      top: 10%;
-      left: 50%;
-      width: 80%;
-      height: 80%;
-      z-index: 0;
-      animation: floatingShapes 5s ease-in-out infinite;
-      pointer-events: none; /* لكي لا تؤثر على تفاعل المستخدم */
-    }
-    .floating-shapes .circle {
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
-      animation: floatingShapes 6s ease-in-out infinite;
-    }
-    .floating-shapes .circle:nth-child(1) {
-      width: 120px;
-      height: 120px;
-      top: 10%;
-      left: 30%;
-      animation-duration: 5s;
-    }
-    .floating-shapes .circle:nth-child(2) {
-      width: 180px;
-      height: 180px;
-      top: 50%;
-      left: 50%;
-      animation-duration: 4s;
-    }
-    .floating-shapes .circle:nth-child(3) {
-      width: 140px;
-      height: 140px;
-      top: 30%;
-      left: 70%;
-      animation-duration: 7s;
-    }
-    @keyframes floatingShapes {
-      0% {
-        transform: translate(0, 0);
-      }
-      50% {
-        transform: translate(20px, 20px);
-      }
-      100% {
-        transform: translate(0, 0);
-      }
-    }
+        /* الأشكال العائمة في الخلفية */
+        .floating-shapes {
+          position: absolute;
+          top: 10%;
+          left: 50%;
+          width: 80%;
+          height: 80%;
+          z-index: 0;
+          animation: floatingShapes 5s ease-in-out infinite;
+          pointer-events: none; /* لكي لا تؤثر على تفاعل المستخدم */
+        }
+        .floating-shapes .circle {
+          position: absolute;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.2);
+          animation: floatingShapes 6s ease-in-out infinite;
+        }
+        .floating-shapes .circle:nth-child(1) {
+          width: 120px;
+          height: 120px;
+          top: 10%;
+          left: 30%;
+          animation-duration: 5s;
+        }
+        .floating-shapes .circle:nth-child(2) {
+          width: 180px;
+          height: 180px;
+          top: 50%;
+          left: 50%;
+          animation-duration: 4s;
+        }
+        .floating-shapes .circle:nth-child(3) {
+          width: 140px;
+          height: 140px;
+          top: 30%;
+          left: 70%;
+          animation-duration: 7s;
+        }
+        @keyframes floatingShapes {
+          0% {
+            transform: translate(0, 0);
+          }
+          50% {
+            transform: translate(20px, 20px);
+          }
+          100% {
+            transform: translate(0, 0);
+          }
+        }
 
-    /* تأثيرات دخول */
-    @keyframes fadeIn {
-      0% {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    @keyframes fadeInScale {
-      0% {
-        opacity: 0;
-        transform: scale(0.95);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
+        /* تأثيرات دخول */
+        @keyframes fadeIn {
+          0% {
+            opacity: 0;
+            transform: translateY(-20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @keyframes fadeInScale {
+          0% {
+            opacity: 0;
+            transform: scale(0.95);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
 
-    /* الرأس (الهيدر) */
-    header {
-      text-align: center;
-      margin-bottom: 20px;
-      animation: fadeIn 1s ease-out;
-      z-index: 10;
-      padding: 20px 15px 0; /* مسافات علوية وجانبية */
-    }
-    .logo-container {
-      margin-bottom: 10px;
-    }
-    .logo {
-      width: 120px;
-      height: auto;
-      max-width: 100%;
-    }
-    h1 {
-      font-size: 2em;
-      font-weight: 700;
-      margin: 10px 0 5px;
-      color: #fff;
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-      margin-bottom: 15px;
-    }
-    .university-info {
-      font-size: 1.1em;
-      color: #fff;
-      margin-top: 5px;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    }
+        /* الرأس (الهيدر) */
+        header {
+          text-align: center;
+          margin-bottom: 20px;
+          animation: fadeIn 1s ease-out;
+          z-index: 10;
+          padding: 20px 15px 0; /* مسافات علوية وجانبية */
+        }
+        .logo-container {
+          margin-bottom: 10px;
+        }
+        .logo {
+          width: 120px;
+          height: auto;
+          max-width: 100%;
+        }
+        h1 {
+          font-size: 2em;
+          font-weight: 700;
+          margin: 10px 0 5px;
+          color: #fff;
+          text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+          margin-bottom: 15px;
+        }
+        .university-info {
+          font-size: 1.1em;
+          color: #fff;
+          margin-top: 5px;
+          text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
 
-    /* الحاوية الرئيسية */
-    .converter-container {
-      background: rgba(255, 255, 255, 0.9);
-      margin: 0 auto 30px; /* توسيط الحاوية مع مسافة سفلية */
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-      max-width: 600px;
-      width: 90%; /* لتناسب الشاشات الصغيرة */
-      box-sizing: border-box;
-      overflow: hidden;
-      text-align: right;
-      animation: fadeInScale 0.8s forwards ease-in-out;
-      z-index: 10;
-    }
+        /* الحاوية الرئيسية */
+        .converter-container {
+          background: rgba(255, 255, 255, 0.9);
+          margin: 0 auto 30px; /* توسيط الحاوية مع مسافة سفلية */
+          padding: 30px;
+          border-radius: 15px;
+          box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+          max-width: 600px;
+          width: 90%; /* لتناسب الشاشات الصغيرة */
+          box-sizing: border-box;
+          overflow: hidden;
+          text-align: right;
+          animation: fadeInScale 0.8s forwards ease-in-out;
+          z-index: 10;
+        }
 
-    label {
-      font-size: 1.1em;
-      margin: 15px 0 5px;
-      display: block;
-      color: #333;
-    }
+        label {
+          font-size: 1.1em;
+          margin: 15px 0 5px;
+          display: block;
+          color: #333;
+        }
 
-    input,
-    select,
-    button {
-      width: 100%;
-      padding: 15px;
-      font-size: 1em;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      border: 1px solid #ccc;
-      background-color: #f8f9fa;
-      color: #333;
-      box-sizing: border-box;
-      transition: all 0.3s ease;
-    }
-    input:focus,
-    select:focus,
-    button:focus {
-      outline: none;
-      border-color: #2575fc;
-      box-shadow: 0 0 8px rgba(37, 117, 252, 0.6);
-    }
+        input,
+        select,
+        button {
+          width: 100%;
+          padding: 15px;
+          font-size: 1em;
+          border-radius: 10px;
+          margin-bottom: 20px;
+          border: 1px solid #ccc;
+          background-color: #f8f9fa;
+          color: #333;
+          box-sizing: border-box;
+          transition: all 0.3s ease;
+        }
+        input:focus,
+        select:focus,
+        button:focus {
+          outline: none;
+          border-color: #2575fc;
+          box-shadow: 0 0 8px rgba(37, 117, 252, 0.6);
+        }
 
-    button {
-      background-color: #2575fc;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-    button:hover {
-      background-color: #6a11cb;
-    }
+        button {
+          background-color: #2575fc;
+          color: #fff;
+          border: none;
+          cursor: pointer;
+          font-weight: bold;
+          transition: background-color 0.3s ease;
+        }
+        button:hover {
+          background-color: #6a11cb;
+        }
 
-    .result {
-      margin-top: 20px;
-      font-size: 1.3em;
-      font-weight: bold;
-      color: #333;
-      word-wrap: break-word; /* في حال كانت النتيجة طويلة */
-    }
-    .error {
-      color: #e74c3c;
-    }
+        .result {
+          margin-top: 20px;
+          font-size: 1.3em;
+          font-weight: bold;
+          color: #333;
+          word-wrap: break-word; /* في حال كانت النتيجة طويلة */
+        }
+        .error {
+          color: #e74c3c;
+        }
 
-    /* شريط التقدم */
-    .progress-container {
-      width: 100%;
-      height: 5px;
-      background-color: #e0e0e0;
-      border-radius: 2px;
-      margin-top: 20px;
-      overflow: hidden;
-      position: relative;
-    }
-    .progress-bar {
-      width: 0%;
-      height: 100%;
-      background-color: #2575fc;
-      border-radius: 2px;
-      transition: width 1s ease-out; /* الانتقال السلس */
-    }
+        /* شريط التقدم */
+        .progress-container {
+          width: 100%;
+          height: 5px;
+          background-color: #e0e0e0;
+          border-radius: 2px;
+          margin-top: 20px;
+          overflow: hidden;
+          position: relative;
+        }
+        .progress-bar {
+          width: 0%;
+          height: 100%;
+          background-color: #2575fc;
+          border-radius: 2px;
+          transition: width 1s ease-out; /* الانتقال السلس */
+        }
 
-    /* قسم الشرح */
-    .explanation-container {
-      background-color: #f1f1f1;
-      border-radius: 10px;
-      padding: 15px;
-      margin-top: 20px;
-      color: #333;
-    }
-    .explanation-container h3 {
-      margin: 0 0 10px;
-      font-size: 1.1em;
-      font-weight: bold;
-      color: #000;
-    }
-    .explanation-container p {
-      margin: 0;
-      line-height: 1.6;
-      font-size: 0.95em;
-    }
-    .example {
-      margin-top: 10px;
-      font-size: 0.9em;
-      color: #555;
-    }
+        /* قسم الشرح */
+        .explanation-container {
+          background-color: #f1f1f1;
+          border-radius: 10px;
+          padding: 15px;
+          margin-top: 20px;
+          color: #333;
+        }
+        .explanation-container h3 {
+          margin: 0 0 10px;
+          font-size: 1.1em;
+          font-weight: bold;
+          color: #000;
+        }
+        .explanation-container p {
+          margin: 0;
+          line-height: 1.6;
+          font-size: 0.95em;
+        }
+        .example {
+          margin-top: 10px;
+          font-size: 0.9em;
+          color: #555;
+        }
 
-    /* التذييل (الفوتر) */
-    footer {
-      text-align: center;
-      font-size: 0.8em;
-      color: #eee;
-      margin-bottom: 10px;
-    }
+        /* التذييل (الفوتر) */
+        footer {
+          text-align: center;
+          font-size: 0.8em;
+          color: #eee;
+          margin-bottom: 10px;
+        }
 
-    /* تجاوب الشاشات المتوسطة */
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 1.8em;
-      }
-      .converter-container {
-        padding: 25px;
-        width: 95%;
-      }
-      label {
-        font-size: 1em;
-      }
-    }
+        /* تجاوب الشاشات المتوسطة */
+        @media (max-width: 768px) {
+          h1 {
+            font-size: 1.8em;
+          }
+          .converter-container {
+            padding: 25px;
+            width: 95%;
+          }
+          label {
+            font-size: 1em;
+          }
+        }
 
-    /* تجاوب الشاشات الصغيرة (الموبايل) */
-    @media (max-width: 480px) {
-      .logo {
-        width: 90px;
-      }
-      h1 {
-        font-size: 1.6em;
-      }
-      .converter-container {
-        padding: 20px;
-        width: 95%;
-      }
-      label {
-        font-size: 0.95em;
-      }
-      input,
-      select,
-      button {
-        padding: 12px;
-        font-size: 0.95em;
-      }
-      .explanation-container {
-        padding: 10px;
-      }
-    }
-  </style>
+        /* تجاوب الشاشات الصغيرة (الموبايل) */
+        @media (max-width: 480px) {
+          .logo {
+            width: 90px;
+          }
+          h1 {
+            font-size: 1.6em;
+          }
+          .converter-container {
+            padding: 20px;
+            width: 95%;
+          }
+          label {
+            font-size: 0.95em;
+          }
+          input,
+          select,
+          button {
+            padding: 12px;
+            font-size: 0.95em;
+          }
+          .explanation-container {
+            padding: 10px;
+          }
+        }
+    </style>
 </head>
 <body>
 <!-- الأشكال العائمة في الخلفية -->
 <div class="floating-shapes">
-  <div class="circle"></div>
-  <div class="circle"></div>
-  <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
 </div>
 
 <!-- الهيدر مع الشعار -->
 <header>
-  <div class="logo-container">
-    <!-- عدّل المسار أدناه للصورة الخاصة بك -->
-    <img
-            src="url(data:image/jpeg;base64,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)"
-            alt="شعار جامعة الحاضرة فرع بنغازي"
-            class="logo"
-    />
-  </div>
-  <h1>Advanced Engineering Unit Converter</h1>
-  <p class="university-info">هذا المشروع تحت إشراف جامعة الحاضرة فرع بنغازي</p>
+    <div class="logo-container">
+        <!-- عدّل المسار أدناه للصورة الخاصة بك -->
+        <img
+                src="C:\Users\LCS\Desktop\392961102_122093948144092826_787338814794989882_n.jpg"
+                alt="شعار جامعة الحاضرة فرع بنغازي"
+                class="logo"
+        />
+    </div>
+    <h1>Advanced Engineering Unit Converter</h1>
+    <p class="university-info">هذا المشروع تحت إشراف جامعة الحاضرة فرع بنغازي</p>
 </header>
 
 <!-- حاوية المحول -->
 <div class="converter-container">
-  <label for="value">Enter Value:</label>
-  <input type="number" id="value" placeholder="Enter a value" required />
+    <label for="value">Enter Value:</label>
+    <input type="number" id="value" placeholder="Enter a value" required />
 
-  <label for="unitCategory">Choose Unit Category:</label>
-  <select id="unitCategory">
-    <option value="length">Length (طول)</option>
-    <option value="weight">Weight (وزن)</option>
-    <option value="volume">Volume (حجم)</option>
-    <option value="temperature">Temperature (حرارة)</option>
-    <option value="speed">Speed (سرعة)</option>
-  </select>
-
-  <!-- وحدات الطول الافتراضية (ستتغيّر عند اختيار أي فئة أخرى) -->
-  <div id="lengthUnits" class="unit-category">
-    <label for="fromUnit">From Unit (Length):</label>
-    <select id="fromUnit">
-      <option value="meters">Meters</option>
-      <option value="kilometers">Kilometers</option>
-      <option value="centimeters">Centimeters</option>
-      <option value="millimeters">Millimeters</option>
+    <label for="unitCategory">Choose Unit Category:</label>
+    <select id="unitCategory">
+        <option value="length">Length (طول)</option>
+        <option value="weight">Weight (وزن)</option>
+        <option value="volume">Volume (حجم)</option>
+        <option value="temperature">Temperature (حرارة)</option>
+        <option value="speed">Speed (سرعة)</option>
     </select>
 
-    <label for="toUnit">To Unit (Length):</label>
-    <select id="toUnit">
-      <option value="meters">Meters</option>
-      <option value="kilometers">Kilometers</option>
-      <option value="centimeters">Centimeters</option>
-      <option value="millimeters">Millimeters</option>
-    </select>
-  </div>
+    <!-- وحدات الطول الافتراضية (ستتغيّر عند اختيار أي فئة أخرى) -->
+    <div id="lengthUnits" class="unit-category">
+        <label for="fromUnit">From Unit (Length):</label>
+        <select id="fromUnit">
+            <option value="meters">Meters</option>
+            <option value="kilometers">Kilometers</option>
+            <option value="centimeters">Centimeters</option>
+            <option value="millimeters">Millimeters</option>
+        </select>
 
-  <button id="convertButton">Convert</button>
+        <label for="toUnit">To Unit (Length):</label>
+        <select id="toUnit">
+            <option value="meters">Meters</option>
+            <option value="kilometers">Kilometers</option>
+            <option value="centimeters">Centimeters</option>
+            <option value="millimeters">Millimeters</option>
+        </select>
+    </div>
 
-  <!-- شريط التقدم -->
-  <div class="progress-container" id="progress-container">
-    <div class="progress-bar" id="progress-bar"></div>
-  </div>
+    <button id="convertButton">Convert</button>
 
-  <p id="result" class="result"></p>
-  <p id="error" class="error"></p>
+    <!-- شريط التقدم -->
+    <div class="progress-container" id="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
 
-  <!-- قسم الشرح الذي يتغير حسب الفئة المختارة -->
-  <div class="explanation-container">
-    <h3>شرح طريقة التحويل:</h3>
-    <p id="explanationText"></p>
-    <p class="example" id="exampleText"></p>
-  </div>
+    <p id="result" class="result"></p>
+    <p id="error" class="error"></p>
+
+    <!-- قسم الشرح الذي يتغير حسب الفئة المختارة -->
+    <div class="explanation-container">
+        <h3>شرح طريقة التحويل:</h3>
+        <p id="explanationText"></p>
+        <p class="example" id="exampleText"></p>
+    </div>
 </div>
 
 <!-- الفوتر -->
 <footer>
-  <p>© 2025 - All Rights Reserved</p>
+    <p>© 2025 - All Rights Reserved</p>
 </footer>
 
 <script>
-  // كائن يحوي الوحدات ومعاملات التحويل
-  const categories = {
-    length: {
-      units: ["meters", "kilometers", "centimeters", "millimeters"],
-      conversion: {
-        meters: 1,
-        kilometers: 0.001,
-        centimeters: 100,
-        millimeters: 1000,
+    // كائن يحوي الوحدات ومعاملات التحويل
+    const categories = {
+      length: {
+        units: ["meters", "kilometers", "centimeters", "millimeters"],
+        conversion: {
+          meters: 1,
+          kilometers: 0.001,
+          centimeters: 100,
+          millimeters: 1000,
+        },
       },
-    },
-    weight: {
-      units: ["grams", "kilograms"],
-      conversion: {
-        grams: 1,
-        kilograms: 0.001,
+      weight: {
+        units: ["grams", "kilograms"],
+        conversion: {
+          grams: 1,
+          kilograms: 0.001,
+        },
       },
-    },
-    volume: {
-      units: ["liters", "milliliters"],
-      conversion: {
-        liters: 1,
-        milliliters: 1000,
+      volume: {
+        units: ["liters", "milliliters"],
+        conversion: {
+          liters: 1,
+          milliliters: 1000,
+        },
       },
-    },
-    temperature: {
-      units: ["celsius", "fahrenheit", "kelvin"],
-      conversion: {
-        celsius: (value) => value,
-        fahrenheit: (value) => value * (9 / 5) + 32,
-        kelvin: (value) => value + 273.15,
+      temperature: {
+        units: ["celsius", "fahrenheit", "kelvin"],
+        conversion: {
+          celsius: (value) => value,
+          fahrenheit: (value) => value * (9 / 5) + 32,
+          kelvin: (value) => value + 273.15,
+        },
       },
-    },
-    speed: {
-      units: ["m/s", "km/h"],
-      conversion: {
-        "m/s": 1,
-        "km/h": 3.6,
+      speed: {
+        units: ["m/s", "km/h"],
+        conversion: {
+          "m/s": 1,
+          "km/h": 3.6,
+        },
       },
-    },
-  };
+    };
 
-  // كائن يحوي الشرح + مثال لكل فئة
-  const explanations = {
-    length: {
-      text:
-        "لتحويل وحدات الطول، نستخدم العلاقة: القيمة × (معامل التحويل). مثال: للتحويل من متر إلى كيلومتر نقسم على 1000 لأن 1 كم = 1000 م.",
-      example: "مثال: 2000 متر = 2 كيلومتر",
-    },
-    weight: {
-      text:
-        "لتحويل وحدات الوزن، نستخدم العلاقة: القيمة × (معامل التحويل). مثال: 1 كغم = 1000 غرام، لذا للتحويل من غرام إلى كغم نقسم على 1000.",
-      example: "مثال: 5000 غرام = 5 كيلوغرام",
-    },
-    volume: {
-      text:
-        "لتحويل وحدات الحجم، نستخدم العلاقة: القيمة × (معامل التحويل). مثلاً 1 لتر = 1000 ملليلتر، للتحويل من ملليلتر إلى لتر نقسم على 1000.",
-      example: "مثال: 2500 ملليلتر = 2.5 لتر",
-    },
-    temperature: {
-      text:
-        "لتحويل درجات الحرارة: من Celsius إلى Fahrenheit نستخدم المعادلة (C × 9/5) + 32، ومن Celsius إلى Kelvin نضيف 273.15.",
-      example: "مثال: 25 درجة مئوية = 77 فهرنهايت = 298.15 كيلفن",
-    },
-    speed: {
-      text:
-        "لتحويل وحدات السرعة، نستخدم العلاقة: القيمة × (معامل التحويل). مثلاً للتحويل من m/s إلى km/h نضرب في 3.6.",
-      example: "مثال: 10 m/s = 36 km/h",
-    },
-  };
+    // كائن يحوي الشرح + مثال لكل فئة
+    const explanations = {
+      length: {
+        text:
+          "لتحويل وحدات الطول، نستخدم العلاقة: القيمة × (معامل التحويل). مثال: للتحويل من متر إلى كيلومتر نقسم على 1000 لأن 1 كم = 1000 م.",
+        example: "مثال: 2000 متر = 2 كيلومتر",
+      },
+      weight: {
+        text:
+          "لتحويل وحدات الوزن، نستخدم العلاقة: القيمة × (معامل التحويل). مثال: 1 كغم = 1000 غرام، لذا للتحويل من غرام إلى كغم نقسم على 1000.",
+        example: "مثال: 5000 غرام = 5 كيلوغرام",
+      },
+      volume: {
+        text:
+          "لتحويل وحدات الحجم، نستخدم العلاقة: القيمة × (معامل التحويل). مثلاً 1 لتر = 1000 ملليلتر، للتحويل من ملليلتر إلى لتر نقسم على 1000.",
+        example: "مثال: 2500 ملليلتر = 2.5 لتر",
+      },
+      temperature: {
+        text:
+          "لتحويل درجات الحرارة: من Celsius إلى Fahrenheit نستخدم المعادلة (C × 9/5) + 32، ومن Celsius إلى Kelvin نضيف 273.15.",
+        example: "مثال: 25 درجة مئوية = 77 فهرنهايت = 298.15 كيلفن",
+      },
+      speed: {
+        text:
+          "لتحويل وحدات السرعة، نستخدم العلاقة: القيمة × (معامل التحويل). مثلاً للتحويل من m/s إلى km/h نضرب في 3.6.",
+        example: "مثال: 10 m/s = 36 km/h",
+      },
+    };
 
-  // إظهار الشرح الأولي لفئة الطول عند فتح الصفحة
-  document.getElementById("explanationText").innerText = explanations["length"].text;
-  document.getElementById("exampleText").innerText = explanations["length"].example;
+    // إظهار الشرح الأولي لفئة الطول عند فتح الصفحة
+    document.getElementById("explanationText").innerText = explanations["length"].text;
+    document.getElementById("exampleText").innerText = explanations["length"].example;
 
-  // تحديث الوحدات والشرح عند تغيير الفئة
-  document.getElementById("unitCategory").addEventListener("change", function () {
-    const category = this.value;
-    const units = categories[category].units;
+    // تحديث الوحدات والشرح عند تغيير الفئة
+    document.getElementById("unitCategory").addEventListener("change", function () {
+      const category = this.value;
+      const units = categories[category].units;
 
-    let fromSelect = document.getElementById("fromUnit");
-    let toSelect = document.getElementById("toUnit");
+      let fromSelect = document.getElementById("fromUnit");
+      let toSelect = document.getElementById("toUnit");
 
-    fromSelect.innerHTML = "";
-    toSelect.innerHTML = "";
+      fromSelect.innerHTML = "";
+      toSelect.innerHTML = "";
 
-    units.forEach((unit) => {
-      fromSelect.innerHTML += `<option value="${unit}">${unit}</option>`;
-      toSelect.innerHTML += `<option value="${unit}">${unit}</option>`;
+      units.forEach((unit) => {
+        fromSelect.innerHTML += `<option value="${unit}">${unit}</option>`;
+        toSelect.innerHTML += `<option value="${unit}">${unit}</option>`;
+      });
+
+      // إعادة ضبط النتيجة والخطأ
+      document.getElementById("result").innerText = "";
+      document.getElementById("error").innerText = "";
+
+      // تحديث الشرح + المثال
+      document.getElementById("explanationText").innerText = explanations[category].text;
+      document.getElementById("exampleText").innerText = explanations[category].example;
     });
 
-    // إعادة ضبط النتيجة والخطأ
-    document.getElementById("result").innerText = "";
-    document.getElementById("error").innerText = "";
+    // عند الضغط على زر التحويل
+    document.getElementById("convertButton").addEventListener("click", function () {
+      const value = parseFloat(document.getElementById("value").value);
+      const category = document.getElementById("unitCategory").value;
+      const fromUnit = document.getElementById("fromUnit").value;
+      const toUnit = document.getElementById("toUnit").value;
+      const conversion = categories[category].conversion;
 
-    // تحديث الشرح + المثال
-    document.getElementById("explanationText").innerText = explanations[category].text;
-    document.getElementById("exampleText").innerText = explanations[category].example;
-  });
-
-  // عند الضغط على زر التحويل
-  document.getElementById("convertButton").addEventListener("click", function () {
-    const value = parseFloat(document.getElementById("value").value);
-    const category = document.getElementById("unitCategory").value;
-    const fromUnit = document.getElementById("fromUnit").value;
-    const toUnit = document.getElementById("toUnit").value;
-    const conversion = categories[category].conversion;
-
-    // التحقق من صحة الإدخال
-    if (isNaN(value)) {
-      document.getElementById("error").innerText = "فضلاً أدخل قيمة صحيحة.";
+      // التحقق من صحة الإدخال
+      if (isNaN(value)) {
+        document.getElementById("error").innerText = "فضلاً أدخل قيمة صحيحة.";
+        document.getElementById("result").innerText = "";
+        return;
+      }
+      document.getElementById("error").innerText = "";
       document.getElementById("result").innerText = "";
-      return;
-    }
-    document.getElementById("error").innerText = "";
-    document.getElementById("result").innerText = "";
 
-    // تهيئة شريط التقدم
-    const progressBar = document.getElementById("progress-bar");
-    progressBar.style.width = "0%";
+      // تهيئة شريط التقدم
+      const progressBar = document.getElementById("progress-bar");
+      progressBar.style.width = "0%";
 setTimeout(() => {
-progressBar.style.width = "100%";
+  progressBar.style.width = "100%";
 }, 50); // تأخير بسيط بـ50 مللي ثانية
 
 
-    // عند انتهاء الانتقال، نحسب القيمة
-    progressBar.addEventListener("transitionend", onTransitionEnd);
+      // عند انتهاء الانتقال، نحسب القيمة
+      progressBar.addEventListener("transitionend", onTransitionEnd);
 
-    function onTransitionEnd() {
-      // إزالة الحدث لتفادي التكرار
-      progressBar.removeEventListener("transitionend", onTransitionEnd);
+      function onTransitionEnd() {
+        // إزالة الحدث لتفادي التكرار
+        progressBar.removeEventListener("transitionend", onTransitionEnd);
 
-      // حساب القيمة المحولة
-      let convertedValue;
-      if (category === "temperature") {
-        // إذا كانت الوحدتان متطابقتان
-        if (fromUnit === toUnit) {
-          convertedValue = value;
+        // حساب القيمة المحولة
+        let convertedValue;
+        if (category === "temperature") {
+          // إذا كانت الوحدتان متطابقتان
+          if (fromUnit === toUnit) {
+            convertedValue = value;
+          } else {
+            convertedValue = conversion[toUnit](value);
+          }
         } else {
-          convertedValue = conversion[toUnit](value);
+          convertedValue = (value * conversion[toUnit]) / conversion[fromUnit];
         }
-      } else {
-        convertedValue = (value * conversion[toUnit]) / conversion[fromUnit];
+        document.getElementById("result").innerText = `Converted Value: ${convertedValue} ${toUnit}`;
       }
-      document.getElementById("result").innerText = `Converted Value: ${convertedValue} ${toUnit}`;
-    }
-  });
+    });
 </script>
 </body>
 </html>
